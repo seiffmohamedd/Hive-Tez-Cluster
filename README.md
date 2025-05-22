@@ -76,3 +76,34 @@ After successfully setting up the cluster manually, we containerize it to simpli
 - `mapreduce-job.jar` - Sample Java MapReduce job
 - `Master & Worker Config Files` - Configuration Files with propertied needed for HA HDFS & YARN 
 
+##  Apache Hive Extension (Course Project)
+
+This section adds **Apache Hive** to the Hadoop cluster using Docker, simulating a real-world **data warehouse migration** scenario from a traditional RDBMS to a Hive-based architecture.
+
+### 🚀 Key Features
+
+-  **Hive on Tez**: Configured to use the **Tez** execution engine instead of MapReduce.
+-  **Hive Metastore**: Runs in **embedded mode** (optionally extended with PostgreSQL).
+-  **Docker-Based Setup**: Hive is containerized alongside Hadoop using a custom image.
+-  **Schema Migration**: Supports both **ACID-compliant** and **non-ACID** Hive tables for transactional and batch use cases.
+
+### Project Components
+
+- **Dockerfile**: Builds a custom Hive + Hadoop image.
+- **docker-compose.yml**: Orchestrates HiveServer2, Metastore, and optionally PostgreSQL.
+- **Configuration Files**: Includes `hive-site.xml`, `tez-site.xml`, etc.
+- **DDL Scripts**: Create partitioned/bucketed tables with ACID and non-ACID configurations.
+- **ETL Automation**: Uses `crontab` to schedule **incremental data loads**.
+- **Sample Workloads**: Contains Hive queries and updates simulating enterprise use cases.
+
+###  Deliverables
+
+-  Fully functional Hive container.
+-  Hive DDL scripts for schema creation.
+-  Automated ETL pipeline using crontab.
+-  Sample datasets demonstrating incremental loading.
+-  Performance notes and schema design documentation.
+
+> Hive runs on **Tez**, not MapReduce, to ensure faster execution and better resource utilization.
+
+
